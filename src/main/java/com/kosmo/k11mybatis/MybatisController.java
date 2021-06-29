@@ -42,6 +42,7 @@ public class MybatisController {
 		int totalRecordCount = 
 				sqlSession.getMapper(MybatisDAOImpl.class).getTotalCount();
 		
+			
 		// 페이지 처리를 위한 설정값
 		int pageSize = 4;
 		int blockPage = 2;
