@@ -47,7 +47,7 @@ public class ParameterDTO {
 //	public void setSearchTxt(String searchLists) {
 //		this.searchTxt = searchLists;
 //	}
-	
+
 	public ArrayList<String> getSearchTxt() {
 		return searchTxt;
 	}

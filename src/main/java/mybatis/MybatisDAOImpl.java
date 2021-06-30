@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface MybatisDAOImpl {
 
+
 	// 1차 버전
 	// 검색 기능 추가 전
 	// 게시물 수 카운트 
@@ -54,6 +55,7 @@ public interface MybatisDAOImpl {
 	public int modify(MyBoardDTO myBoardDTO);
 	
 	// 삭제 처리
+
 	public int delete(String idx, String id);
 	
 	

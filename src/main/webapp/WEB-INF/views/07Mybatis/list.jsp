@@ -60,6 +60,7 @@ function deleteRow(idx) {
 			<input type="submit" value="검색" />
 		</form>
 		여러 단어를 검색하고 싶을 때는 스페이스로 구분해주세요.
+
 		</div>   
 		     
 		
@@ -82,11 +83,12 @@ function deleteRow(idx) {
 								onclick="location.href='modify.do?idx=${row.idx}';">수정</button>
 							
 							<!-- 삭제 버튼을 누를경우 idx값을 JS의 함수로 전달한다 -->
+
 							<button class="btn btn-danger"
 								onclick="javascript:deleteRow(${row.idx});">삭제</button>
 						</c:if>
 
-					</div>
+					</div>  
 			</div>
 		</div>
 	</c:forEach>

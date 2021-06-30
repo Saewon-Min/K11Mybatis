@@ -363,7 +363,7 @@ public class MybatisController {
 		
 		return "07Mybatis/modify";
 			
-		
+		  
 		
 	}     
 	
@@ -390,10 +390,11 @@ public class MybatisController {
 		
 	}
 	
+
+
 	// 삭제 처리
 	@RequestMapping("/mybatis/delete.do")
 	public String delete(HttpServletRequest req, HttpSession session) {
-		
 		// 본인확인을 위해서 로그인 체크
 		if(session.getAttribute("siteUserInfo")==null) {
 			return "redirect:login.do";
