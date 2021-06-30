@@ -37,6 +37,7 @@
 	<beans:bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
+		<!-- mapper의 위치 설정 : mybatis.mapper 패키지 하위의 모든 xml 파일 -->
 		<beans:property name="mapperLocations" 
 			value="classpath:mybatis/mapper/*.xml" />
 	</beans:bean>

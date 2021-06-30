@@ -12,10 +12,56 @@
 	
 </head>
 <body>
-<h2>회원제 방명록 게시판</h2>
+<script type="text/javascript">
+
+function deleteRow(idx) {
+	if(confirm("정말로 삭제하시겠습니까?")){
+		location.href="delete.do?idx="+idx;
+	}
+}
+
+</script>
+
 
 <div class="container">
-	<h3 class="text-center">방명록(한줄게시판)</h3>
+	<h3 class="text-center">회원제 방명록 게시판</h3>
+		
+		<!-- 글쓰기 버튼 및 로그인/로그아웃 버튼 -->  
+		<div class="text-right">
+			<!--  
+				EL의 내장객체인 sessionScope를 통해 세션영역에 저장된
+				속성이 있는지 확인함
+			-->
+			<c:choose>
+				<c:when test="${not empty sessionScope.siteUserInfo }">
+					<!-- 세션영역에 속성이 있을때, 즉, 로그인 되었을때 -->
+					<button class="btn btn-danger"
+						onclick="location.href='logout.do';">로그아웃</button>
+				</c:when>			
+				<c:otherwise>
+					<button class="btn btn-info"
+						onclick="location.href='login.do';">로그인</button>				
+				</c:otherwise>
+			</c:choose>
+			&nbsp;&nbsp;
+			<button class="btn btn-success"
+				onclick="location.href='write.do';">방명록쓰기
+			</button>
+		</div>
+		
+		<!-- 검색처리 -->
+		<div class="text-center">
+		<form method="get">
+			<select name="searchField">
+				<option value="contents">내용</option>
+				<option value="name">작성자</option>
+			</select>
+			<input type="text" name="searchTxt" />
+			<input type="submit" value="검색" />
+		</form>
+		여러 단어를 검색하고 싶을 때는 스페이스로 구분해주세요.
+		</div>
+		
 		
 	<!-- 방명록 반복 부분 s -->
 	<c:forEach items="${lists }" var="row">		
@@ -30,8 +76,14 @@
 				</div>	  
 				<!--  수정,삭제버튼 -->
 				<div class="media-right">
-					
-				</div>
+						<c:if test="${sessionScope.siteUserInfo.id eq row.id }">
+							<button class="btn btn-primary"
+								onclick="location.href='modify.do?idx=${row.idx}';">수정</button>
+							<button class="btn btn-danger"
+								onclick="javascript:deleteRow(${row.idx});">삭제</button>
+						</c:if>
+
+					</div>
 			</div>
 		</div>
 	</c:forEach>
