@@ -37,7 +37,7 @@ public interface MybatisDAOImpl {
 	이때는 변수명을 그대로 Mapper에서 사용할 수 있다.
 	
 	
-	@Param("_name") String name
+	@Param("_name") String name   
 	=> name을 받아와서 _name으로 변수명을 변경한다.
 	mapper에서는 _name을 사용한다.
 	
