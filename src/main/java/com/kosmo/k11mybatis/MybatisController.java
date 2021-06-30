@@ -23,7 +23,6 @@ import util.PagingUtil;
 @Controller
 public class MybatisController {
 
-	
 	/*
 	Mybatis를 사용하기 위해 빈을 자동주입 받음
 	servlet-context.xml에서 생성함
@@ -141,7 +140,7 @@ public class MybatisController {
 //				String temp=
 //						dto.getContents().replace("\r\n", "<br/>");
 //				dto.setContents(temp);
-//			}
+//			}     
 //			
 //			model.addAttribute("lists" , lists);
 //			
@@ -149,7 +148,7 @@ public class MybatisController {
 //			
 //		}
 	
-	
+	  
 	// 방명록 리스트 3
 	// 3차버전
 		@RequestMapping("/mybatis/list.do")
@@ -164,15 +163,32 @@ public class MybatisController {
 			// 검색어를 스페이스로 구분하는 경우
 			ArrayList<String> searchLists = null;
 			if(req.getParameter("searchTxt")!=null) {
-				/*
+				
+				
+				
+				if(req.getParameter("searchTxt").trim().isEmpty()) {
+					
+						return "redirect:list.do";
+						
+				}else {
+					/*
 				스페이스로 구분된 검색어를 받은 후 split 하여 List컬렉션에
 				추가한다. 검색어의 개수만큼 추가된다.
-				 */
-				searchLists = new ArrayList<String>();
-				String[] sTxtArray = req.getParameter("searchTxt").split(" ");
-				for(String str: sTxtArray) {
-					searchLists.add(str);
+					 */
+					
+					
+					searchLists = new ArrayList<String>();
+					String[] sTxtArray = req.getParameter("searchTxt").trim().split(" ");
+					for(String str: sTxtArray) {
+						searchLists.add(str);
+					}
+					
+					
+					
+					
 				}
+				
+				
 			}
 			
 			parameterDTO.setSearchTxt(searchLists);
