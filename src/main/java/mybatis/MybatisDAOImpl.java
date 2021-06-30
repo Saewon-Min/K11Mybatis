@@ -30,12 +30,12 @@ public interface MybatisDAOImpl {
 
 	
 	    
-	
+	  
 	/*
 	Mapper에서 파라미터를 처리할 수 있는 세번째 방법으로,
 	@Param어노테이션을 사용한다.
 	이때는 변수명을 그대로 Mapper에서 사용할 수 있다.
-	
+	  
 	
 	@Param("_name") String name   
 	=> name을 받아와서 _name으로 변수명을 변경한다.
