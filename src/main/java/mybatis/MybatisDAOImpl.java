@@ -29,7 +29,7 @@ public interface MybatisDAOImpl {
 	public ArrayList<MyBoardDTO> listPage(ParameterDTO parameterDTO);
 
 	
-	
+	    
 	
 	/*
 	Mapper에서 파라미터를 처리할 수 있는 세번째 방법으로,
