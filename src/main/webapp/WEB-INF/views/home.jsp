@@ -16,6 +16,32 @@
 		<a href="mybatis/list.do" target="_blank">
 		한줄게시판 바로가기</a>
 	</li>
+	
+	
+	
+	<h2>Collection 사용하기</h2>
+	<li>
+		<a href="Collection/hashMap.do" target="_blank">
+		HashMap.do 바로가기</a>
+	</li>
+	<li>
+		<a href="Collection/arrayList.do" target="_blank">
+		arrayList.do 바로가기</a>
+	</li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </div>
 </body>
 </html>

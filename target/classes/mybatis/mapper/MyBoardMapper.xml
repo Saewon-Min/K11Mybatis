@@ -33,11 +33,17 @@ Mapper에서의 파라미터 사용법
 	파라미터가 전달되면 순서대로 param1, param2로 사용할 수 있다.
 	
 형식2]
-	다른 예제에서
+	인덱스를 사용하는 방법
+	순서대로 0부터 시작한다.
+	샾{0} , 샾{1} , ... 
 
 형식3]
-	다른 예제에서
+	@Param 어노테이션을 사용하는 방법
+	@Param(_변수명 String 변수명) => mapper에서는 _변수명으로
+	사용 할 수 있다.
 	
+형식4]
+	DTO와 같은 객체를 사용하는 방법
 -->
 <!--  
 각 엘리먼트 별 반환값
@@ -222,10 +228,52 @@ update/delete
 
 
 	<!-- 게시물 삭제하기 -->
-
 	<delete id="delete">
 		DELETE FROM myboard WHERE idx=#{param1} AND id=#{param2}
 	</delete>
+
+
+
+	<!-- 둘 다 됨 : java.util.Map 또는 map -->
+	<!-- <select id="hashMapUse" resultType="mybatis.MyBoardDTO"
+		parameterType="map"> -->
+	<select id="hashMapUse" resultType="mybatis.MyBoardDTO"
+		parameterType="java.util.Map">
+		SELECT * FROM myboard
+		WHERE id=#{key_id} or name=#{key_name} or contents like '%'||#{key_contents}||'%'
+ 		ORDER BY idx DESC	
+	</select>
+	<!-- 
+		컨트롤러에서 저장한 값
+		hashMap.put("key_id", "kosmo");
+		hashMap.put("key_name", "코스모"); 
+		hashMap.put("key_contents", "룰루");
+	-->
+	
+	
+	
+	
+	<!-- 둘 다 됨 : java.util.ArrayList 또는 list -->
+	<!-- <select id="arrayListUse" resultType="mybatis.MyBoardDTO"
+		parameterType="list"> -->
+	<select id="arrayListUse" resultType="mybatis.MyBoardDTO"
+		parameterType="java.util.ArrayList">
+		SELECT * FROM myboard
+		WHERE 
+		<!-- 리스트의 경우 collection="list" 와 같이 파라미터 명을
+		list라고 쓰기로 결정되어있다. -->
+		<foreach collection="list" item="item" index="index"
+			open="(" close=")" separator="or">
+			name=#{item}	
+		</foreach>
+ 		ORDER BY idx DESC	
+	</select>
+	<!--  
+		위의 <foreach 태그를 통해 아래와 같은 쿼리가 만들어진다.
+		(
+			name='옹성우' or name='김선우' or name='김선호' or ...
+		)
+	-->
 
 
 

@@ -120,11 +120,11 @@
 		<!-- </dependencies>의 마지막부분에 의존설정 추가할 것 -->
 		<!--  
 			오라클 드라이버를 사용하기 위한 의존설정
-		-->
+		-->   
 		<dependency>  
 			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3</version>
+			<artifactId>ojdbc6</artifactId>  
+			<version>11.2.0.3</version>  
 		</dependency>
 		<!--  
 			JDBCTemplate을 사용하기 위한 의존설정
@@ -147,7 +147,12 @@
 			<version>1.2.2</version>
 		</dependency>
 		
-		
+		<!-- lombok을 사용하기 위한 의존설정 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+		</dependency>
 		
 		  
 	</dependencies>

@@ -20,6 +20,7 @@ public class ParameterDTO {
 	private int start; // select의 시작
  	private int end; // 끝
 	
+ 	public ParameterDTO() {}
 	
 	
 	public String getUser_id() {  
